@@ -3,3 +3,15 @@ class Solution:
     def replaceSpace(self, s: str) -> str:
         new_str=s.replace(" ","%20")
         return new_str
+    
+    
+#new solution 
+class Solution2:
+    def replaceSpace(self, s: str) -> str:
+        a=[]
+        for i in s:
+            if i == ' ':
+                a.append('%20')
+            else:
+                a.append(i)
+        return ''.join(a)
