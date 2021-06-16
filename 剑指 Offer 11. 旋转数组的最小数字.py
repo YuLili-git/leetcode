@@ -4,15 +4,13 @@ class Solution:
         left = 0
         right = len(numbers)-1
         
-        while left <= right:
+        while left < right:
             mid = (left + right)//2
             if numbers[right] > numbers[mid]:
                 right = mid
-            if numbers[right] < numbers[mid]:
-                left = mid
-            if left == mid:
-                if numbers[left] <= numbers[right]:
-                    return numbers[left]
-                if numbers[left] > numbers[right]:
-                    return numbers[right]
-        
+            elif numbers[right] < numbers[mid]:
+                left = mid + 1
+            else:
+                right = right - 1
+                
+        return numbers[left]
