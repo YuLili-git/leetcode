@@ -4,7 +4,7 @@
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
-
+###################################solution 1##############################################
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
         def recur(cur, pre):
@@ -14,3 +14,15 @@ class Solution:
             cur.next = pre
             return res
         return recur(head, None)
+    
+###################################solution 2##############################################
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        cur = head
+        pre = None
+        while cur:
+            res = cur.next
+            cur.next = pre
+            pre = cur
+            cur = res
+        return pre
