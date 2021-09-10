@@ -5,7 +5,7 @@
 #示例 2:
 #输入: nums = [5,7,7,8,8,10], target = 6
 #输出: 0
-##############################solution 1##############################
+############################## solution 1 ##############################
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         count = 0
@@ -14,7 +14,7 @@ class Solution:
                 count += 1
         return count
 
-##############################solution 2##############################      
+############################## solution 2 ##############################      
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         i = 0
@@ -37,3 +37,17 @@ class Solution:
                 j = m - 1
         left = j
         return right - left - 1
+############################## solution 3 ############################## 
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        dic = {}
+        for i in nums:
+            if i not in dic:
+                dic[i] = 1
+            else:
+                dic[i] += 1
+
+        for i in dic.keys():
+            if i == target:
+                return dic[i]
+        return 0
